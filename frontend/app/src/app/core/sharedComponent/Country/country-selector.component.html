@@ -1,0 +1,13 @@
+<mat-form-field style="width: 100%;">
+  <mat-label>Residence</mat-label>
+  <input matInput
+         [formControl]="control"
+         required />
+
+  <mat-error>
+    {{
+      control.touched && control.hasError('required') ? 'residence is required'
+      : ''
+    }}
+  </mat-error>
+</mat-form-field>

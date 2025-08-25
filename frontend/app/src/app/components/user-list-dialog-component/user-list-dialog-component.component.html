@@ -1,0 +1,36 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+
+<mat-dialog-content class="user-list-content">
+
+  <!-- User items -->
+  @for (user of data.UserResponse; track user.userAvatar.userId) {
+    <app-user-item [user]="user"
+      [currentUserId]="currentUserId"
+      [isMutualFollowings]="data.title=='MutualFollowings'"
+      [isLoading]="followSpinner"
+    (onFollow)="follow(user)"
+      (onUnFollow)="unFollow(user)"
+      (GoTOProfile)="GoTOProfile( user.userAvatar.username)"
+      >
+    </app-user-item>
+  }
+
+  <!-- Loading spinner -->
+  @if (isFollowersLoading) {
+    <div class="spinner-container">
+      <mat-spinner diameter="30"></mat-spinner>
+    </div>
+  }
+
+  <!-- Sentinel for IntersectionObserver -->
+  <div #sentinel class="scroll-sentinel"></div>
+
+  @if (isLoadingFailed) {
+    <p>Loading Failed, please check the connection then try again</p>
+  }
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Close</button>
+</mat-dialog-actions>
