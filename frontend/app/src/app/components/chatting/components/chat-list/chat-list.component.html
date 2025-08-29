@@ -77,6 +77,7 @@
                 <!-- Text content -->
                 <div  [matMenuTriggerFor]="msgMenu"
      #t="matMenuTrigger"
+     [matMenuTriggerData]="{ trigger: t, message: m }"
      (contextmenu)="$event.preventDefault(); t.openMenu()" class="message-content">{{ m.content }}</div>
 
                 <!-- File/Image
@@ -111,6 +112,19 @@
                 <button mat-menu-item (click)="forward(m)"><mat-icon>forward</mat-icon><span>Forward</span></button>
                 <button mat-menu-item (click)="deleteForMe(m)"><mat-icon>delete</mat-icon><span>Delete</span></button>
                 <button mat-menu-item (click)="pin(m)"><mat-icon>push_pin</mat-icon><span>Pin</span></button>
+                <button mat-menu-item (click)="openInfoFromContext(data?.trigger, infoMenu, data?.message?.messageId)"><mat-icon>info</mat-icon><span>Info</span></button>
+  </ng-template>
+              </mat-menu>
+
+              <!-- Info Menu -->
+              <mat-menu #infoMenu="matMenu">
+  <ng-template matMenuContent let-data="matMenuTriggerData">
+    <div style="min-width: 250px; max-width: 300px; padding: 12px;">
+      <h6 style="margin-bottom: 8px; font-weight: 600;">Message Info</h6>
+      <p style="margin: 4px 0; color: gray;"><strong>Message ID:</strong> {{ data?.message?.messageId }}</p>
+      <p style="margin: 4px 0; color: gray;"><strong>Delivered:</strong> {{ (data?.message?.messageStatus === MessageStatus.DELIVERED || data?.message?.messageStatus === MessageStatus.READ) ? 'Yes' : 'No' }}</p>
+      <p style="margin: 4px 0; color: gray;"><strong>Read:</strong> {{ data?.message?.messageStatus === MessageStatus.READ ? 'Yes' : 'No' }}</p>
+    </div>
   </ng-template>
               </mat-menu>
 
