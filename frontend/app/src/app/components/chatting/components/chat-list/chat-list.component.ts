@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MessageResponse, MessageStatus } from '../../models/message-response';
-import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
+import { MatMenu, MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatIconModule } from "@angular/material/icon";
 import { ViewChild } from '@angular/core';
 
@@ -207,6 +207,7 @@ export class ChatListComponent {
 
 
   @ViewChild('t') menuTrigger!: MatMenuTrigger;
+  lastMessageMenuTrigger?: MatMenuTrigger;
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
@@ -214,5 +215,23 @@ export class ChatListComponent {
     if (this.menuTrigger?.menuOpen) {
       this.menuTrigger.closeMenu();
     }
+  }
+
+  openInfoFromContext(parentTrigger: MatMenuTrigger | undefined, infoMenu: MatMenu, messageId?: number): void {
+    if (!parentTrigger) {
+      return;
+    }
+
+    const originalMenu = parentTrigger.menu;
+    parentTrigger.closeMenu();
+
+    parentTrigger.menu = infoMenu;
+    setTimeout(() => {
+      parentTrigger.openMenu();
+      const sub = parentTrigger.menuClosed.subscribe(() => {
+        parentTrigger.menu = originalMenu;
+        sub.unsubscribe();
+      });
+    }, 0);
   }
 }
