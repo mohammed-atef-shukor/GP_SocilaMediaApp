@@ -1,17 +1,17 @@
 .sidenav-container {
     height: 100vh;
-    background-color: black;
+    background-color: white;
 }
 
 .sidenav {
-    width: 200px;
+    width: 250px;
     background-color: rgb(6, 6, 7);
 }
 
 .content {
     box-sizing: border-box;
-    padding: 20px;
-    height: calc(100vh - 40px);
+
+    height: 100vh;
     overflow: auto;
 }
 

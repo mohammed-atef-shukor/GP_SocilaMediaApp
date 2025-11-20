@@ -1,0 +1,85 @@
+mat-nav-list {
+    margin-top: 40px;
+    display: grid;
+    row-gap: 70px;
+    padding: 5px;
+}
+
+.nav-label, mat-icon {
+    color: white !important;
+    font-weight: 1000;
+    font-size: 20px;
+}
+
+.nav-item {
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 0px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-item.active, .nav-item:hover {
+    background-color: rgb(60 63 68 / 68%);
+    font-weight: 500;
+}
+
+/* Sidebar badge styles */
+.nav-item {
+    position: relative;
+    /* This is crucial for positioning the badge */
+}
+
+.badge {
+    position: absolute;
+    /* Position the badge relative to the .nav-item */
+    top: 10px;
+    /* Adjust as needed for vertical alignment */
+    right: 20px;
+    /* Adjust as needed for horizontal alignment */
+    background-color: transparent;
+    /* A common color for notifications (red) */
+    color: red;
+    /* Text color for visibility */
+    border-radius: 50%;
+    /* Makes the badge a circle */
+
+    /* Adjust padding to control the size */
+    font-size: 12px;
+    /* Small font size for the count */
+    font-weight: bold;
+    /* Make the number stand out */
+    width: 40px;
+    /* Ensures the circle is big enough for single digits */
+    text-align: center;
+    line-height: 16px;
+    /* Vertically centers the number */
+}
+
+.badge-Notifications {
+
+    position: absolute;
+    /* Position the badge relative to the .nav-item */
+    top: 10px;
+    /* Adjust as needed for vertical alignment */
+    right: 20px;
+    /* Adjust as needed for horizontal alignment */
+    background-color: transparent;
+    /* A common color for notifications (red) */
+    color: red;
+    /* Text color for visibility */
+    border-radius: 50%;
+    /* Makes the badge a circle */
+
+    /* Adjust padding to control the size */
+    font-size: 12px;
+    /* Small font size for the count */
+    font-weight: bold;
+    /* Make the number stand out */
+    width: 40px;
+    /* Ensures the circle is big enough for single digits */
+    text-align: center;
+    line-height: 16px;
+    /* Vertically centers the number */
+}

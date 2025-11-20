@@ -3,3 +3,72 @@ body {
     margin: 0px;
     height: 100vb;
 }
+
+/* These styles allow the entire page to scroll */
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    /* Use min-height to allow expansion */
+    overflow-y: auto;
+    /* Ensures a scrollbar when content overflows vertically */
+}
+
+/* For WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 8px;
+    /*slimscrollbar*/
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    /* no visible track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 255, 255);
+    /* light gray/black */
+    border-radius: 10px;
+    /* rounded */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(23, 17, 17, 0.35);
+    /* slightly darker on hover */
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    /* slim scrollbar */
+    scrollbar-color: rgba(0, 0, 0, 0.2);
+}
+
+/* For WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 8px;
+    /* slim scrollbar */
+}
+
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    min-height: 20px;
+    /* ensures small height for short thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(0, 0, 0);
+}
