@@ -45,10 +45,3 @@ A modern social media web application built using Angular, focusing on clean UI,
 - Scalable folder structure
 
  
-
-## ⚙️ Getting Started
-
-### 1️⃣ Clone the repository
-```bash
-git clone https://github.com/mohammed-atef-shukor/YOUR-REPO-NAME.git
-cd YOUR-REPO-NAME
